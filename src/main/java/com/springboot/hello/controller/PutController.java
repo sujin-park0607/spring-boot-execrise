@@ -22,7 +22,7 @@ public class PutController {
 //        return sb.toString();
 //    }
 
-    @PostMapping("/member3")
+    @PutMapping("/member3")
     public ResponseEntity<MemberDto> putMember(@RequestBody MemberDto memberDto){
         return ResponseEntity
                 .status(HttpStatus.ACCEPTED)
