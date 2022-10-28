@@ -18,6 +18,18 @@ User addAndGet
 
 ### Code 
 
+application.yml
+
+```java
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/likelion-db
+    username: root
+    password: 1q2w3e4r
+```
+
+
 Controller.java
 
 ```java
