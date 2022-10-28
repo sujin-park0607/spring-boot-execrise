@@ -1,6 +1,7 @@
 package com.example.demo.dao;
 
 import com.example.demo.domain.User;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
@@ -14,41 +15,23 @@ import java.util.Map;
 public class UserDao {
 
     private final DataSource dataSource;
+    private final JdbcTemplate jdbcTemplate;
 
-    public UserDao(DataSource dataSource) {
+    public UserDao(DataSource dataSource, JdbcTemplate jdbcTemplate) {
         this.dataSource = dataSource;
+        this.jdbcTemplate = jdbcTemplate;
     }
 
 
-    public void jdbcContextWithStatementStrategy(StatementStrategy stmt) throws SQLException {
-        Connection c = null;
-        PreparedStatement ps = null;
-        try {
-            c = dataSource.getConnection();
-            ps = stmt.makePreparedStatement(c
-            );
-            ps.executeUpdate();
-        } catch (SQLException e) {
-            throw e;
-        } finally {
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (SQLException e) {
-                }
-            }
-            if (c != null) {
-                try {
-                    c.close();
-                } catch (SQLException e) {
-                }
-            }
-        }
+
+    public void add(User user){
+        this.jdbcTemplate.update("insert into users(id, name, password) values(?,?,?)",
+        user.getId(), user.getName(), user.getPassword());
+
     }
 
-    public void add(User user) throws SQLException {
-        AddStrategy addStrategy = new AddStrategy(user);
-        jdbcContextWithStatementStrategy(addStrategy);
+    public int deleteAll() {
+        return this.jdbcTemplate.update("delete from users");
     }
 
     public User findById(String id) {

@@ -6,6 +6,7 @@ SPRING_DATASOURCE_USERNAME=root
 SPRING_DATASOURCE_PASSWORD=1234
 ```
 
+
 ### Endpoint
 
 GET /api/v1/
@@ -20,7 +21,7 @@ User addAndGet
 
 application.yml
 
-```java
+```yaml
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
