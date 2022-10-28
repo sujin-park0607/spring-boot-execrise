@@ -13,11 +13,11 @@ import java.sql.SQLException;
 
 @RestController
 @RequestMapping("/api/v1")
-public class HelloController {
+public class UserController {
 
     private final UserDao userDao;
 
-    public HelloController(UserDao userDao) {
+    public UserController(UserDao userDao) {
         this.userDao = userDao;
     }
 
