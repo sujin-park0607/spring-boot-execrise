@@ -15,3 +15,26 @@ Hello World 출력
 GET /api/v1/user/
 
 User addAndGet
+
+### Code 
+
+Controller.java
+
+```java
+@RestController
+@RequestMapping("/api/v1")
+public class HelloController {
+
+    private final UserDao userDao;
+
+    public HelloController(UserDao userDao) {
+        this.userDao = userDao;
+    }
+
+    @GetMapping("/user/")
+    public User addAndGet() throws SQLException {
+        userDao.add(new User("1", "Kyeongrok", "1234"));
+        return userDao.findById("1");
+    }
+}
+```
