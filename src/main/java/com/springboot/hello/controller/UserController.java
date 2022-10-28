@@ -1,4 +1,4 @@
-package com.springboot.hello.domain.dto.controller;
+package com.springboot.hello.controller;
 
 import com.springboot.hello.dao.UserDao;
 import com.springboot.hello.domain.dto.User;
