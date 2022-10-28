@@ -1,4 +1,4 @@
-package com.springboot.hello.controller;
+package com.springboot.hello.domain.dto.controller;
 
 import com.springboot.hello.domain.dto.MemberDto;
 import org.springframework.http.HttpStatus;
