@@ -1,4 +1,4 @@
-package com.springboot.hello.domain.dto.controller;
+package com.springboot.hello.controller;
 
 import com.springboot.hello.domain.dto.MemberDto;
 import lombok.extern.slf4j.Slf4j;
